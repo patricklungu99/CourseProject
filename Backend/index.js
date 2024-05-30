@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const sqlite3 = require('sqlite').verbose();
+const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 require('dotenv').config();
 
@@ -28,7 +28,7 @@ const db = new sqlite3.Database('./database.db', (err) => {
 
 // Routes
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.json({message: 'Working just fine'});
 });
 
 // Add favorite city
@@ -69,7 +69,7 @@ app.delete('/api/favorites/:id', (req, res) => {
   });
 });
 
-// Start server
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
