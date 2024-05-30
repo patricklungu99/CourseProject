@@ -2,16 +2,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Middleware
+app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// SQLite database setup
+
 const db = new sqlite3.Database('./database.db', (err) => {
   if (err) {
     console.error('Error opening database:', err.message);
@@ -26,10 +28,12 @@ const db = new sqlite3.Database('./database.db', (err) => {
   }
 });
 
+
 // Routes
 app.get('/', (req, res) => {
   res.json({message: 'Working just fine'});
 });
+
 
 // Add favorite city
 app.post('/api/favorites', (req, res) => {
@@ -46,6 +50,7 @@ app.post('/api/favorites', (req, res) => {
   });
 });
 
+
 // Get favorite cities
 app.get('/api/favorites', (req, res) => {
   const sql = 'SELECT * FROM favorites';
@@ -56,6 +61,7 @@ app.get('/api/favorites', (req, res) => {
     res.json({ favorites: rows });
   });
 });
+
 
 // Remove favorite city
 app.delete('/api/favorites/:id', (req, res) => {

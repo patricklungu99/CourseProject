@@ -1,13 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('search-form');
     const cityInput = document.getElementById('city-input');
     const cityBtn = document.getElementById('city-btn');
     const weatherDetails = document.getElementById('weather-details');
-    // const forecastDetails = document.getElementById('forecast-details');
     const favoriteCities = document.getElementById('favorite-cities');
     const quotesContainer = document.getElementById('quotes');
 
-    // Fetch and display weather data
+    fetchMotivationalQuote();
+    getFavouriteCities();
+    setInterval(fetchMotivationalQuote, 50000);
+
+
     cityBtn.addEventListener('click', (event) => {
         event.preventDefault();
         const city = cityInput.value.trim();
@@ -16,11 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Fetch and display motivational quotes
-    fetchMotivationalQuotes();
 
     async function getWeather(city) {
-        const url = 'https://weatherapi-com.p.rapidapi.com/current.json?q=paris';
+        const url = 'https://weatherapi-com.p.rapidapi.com/current.json?q=' + city;
         const options = {
             method: 'GET',
             headers: {
@@ -31,14 +31,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             const response = await fetch(url, options);
-            const result = await response.text();
-            console.log(result);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const result = await response.json();
+            const current = result.current;
+            const location = result.location;
+            const currentCondition = result.current.condition;
+
+            weatherDetails.innerHTML = `
+                <article>
+                    <header>
+                        <div>
+                            <img src='${currentCondition.icon}' /></br>
+                            <p>${location.name}, ${location.country} </p>
+                        </div>
+                        <div id='second_div'>
+                            <button id="thumbButton">&#128077;</button> </br>
+                            Celcius: ${current.temp_c}°C </br>
+                            Fahrenheit: ${current.temp_f}f  </br
+                            ${currentCondition.text}>
+                        </div>
+                    </header>
+                    <hr/>
+                    <footer class"region">
+                        Region: ${location.region} </br>
+                        Time: ${location.localtime}
+                    </footer>
+                </article>
+            `
+            const thumbButton = document.getElementById('thumbButton');
+            thumbButton.addEventListener('click', () => addToFavourite(location.name));
+
         } catch (error) {
             console.error(error);
         }
+
+        
     }
 
-    async function fetchMotivationalQuotes() {
+    async function fetchMotivationalQuote() {
         const url = 'https://get-quotes-api.p.rapidapi.com/random';
         const options = {
             method: 'GET',
@@ -50,16 +84,70 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             const response = await fetch(url, options);
-            const result = await response.text();
-            console.log(result);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const result = await response.json();
+
+            quotesContainer.innerHTML = `
+            <p>${result.quote.quote}</p>
+            <p>${result.quote.category} ~ ${result.quote.author}</p>
+            `;
         } catch (error) {
             console.error(error);
         }
-
-        // quotes.forEach(quote => {
-        //     const quoteElement = document.createElement('p');
-        //     quoteElement.textContent = quote;
-        //     quotesContainer.appendChild(quoteElement);
-        // });
     }
+
+    async function addToFavourite(city) {
+        const url = 'http://localhost:8000/api/favorites';
+        const data = { city };
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        };
+    
+        try {
+            const response = await fetch(url, options);
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+    
+            const result = await response.json();
+            console.log(result);
+        } catch (error) {
+            console.error('Error adding to favorites:', error);
+        }
+    }
+    
+
+    async function getFavouriteCities() {
+        const url = 'http://localhost:8000/api/favorites';
+        const options = {
+            mode: 'cors',
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+            }
+        };
+    
+        try {
+            const response = await fetch(url, options);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const result = await response.json();
+            console.log(result);
+        } catch (error) {
+            console.error('Error fetching favorite cities:', error);
+        }
+    }
+
 });

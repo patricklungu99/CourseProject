@@ -1,67 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Weather Dashboard</h1>
-    </header>
 
-    <div class="container">
-        <main>
-            <section id="search">
-                <h2>Search for a City</h2>
-                <form id="search-form">
-                    <!-- <label for="city-input">City Name:</label> -->
-                    <input type="text" id="city-input" name="city" required>
-                    <button type="submit" id="city-btn">Search</button>
-                </form>
-                <section id="current-weather">
-                    <!-- <h2>Current Weather</h2> -->
-                    <div id="weather-details">
-                        
-                    </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather Dashboard</title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header>
+            <h1>Weather Dashboard</h1>
+        </header>
+
+        <div class="container">
+            <main>
+                <section id="search">
+                    <h2>Search for a City</h2>
+                    <form id="search-form">
+                        <input type="text" id="city-input" name="city" required>
+                        <button type="submit" id="city-btn">Search</button>
+                    </form>
+                    <section id="current-weather">
+                        <div id="weather-details">
+                            <!-- Searched city will be populated here by JavaScript -->
+                        </div>
+                    </section>
                 </section>
-            </section>
 
-            <!-- <section id="current-weather">
-                <h2>Current Weather</h2>
-                <div id="weather-details">
-                     Weather details will be populated here by JavaScript
+                <section id="favorites">
+                    <h2>Favourite Cities</h2>
+                    <ul id="favorite-cities">
+                        <!-- Favorite cities will be populated here by JavaScript -->
+                    </ul>
+                </section>
+            </main>
+
+            <aside id="sidebar">
+                <h2>Quote of the day</h2>
+                <div id="quotes">
+                    <!-- Quotes will be populated here by JavaScript -->
                 </div>
-            </section> -->
+            </aside>
+        </div>
 
-            <!-- <section id="forecast">
-                <h2>Weather Forecast</h2>
-                <div id="forecast-details">
-                     Weather forecast will be populated here by JavaScript
-                </div>
-            </section> -->
+        <footer>
+            <p>&copy; 2024 Weather Dashboard</p>
+        </footer>
 
-            <section id="favorites">
-                <h2>Favorite Cities</h2>
-                <ul id="favorite-cities">
-                    <!-- Favorite cities will be populated here by JavaScript -->
-                </ul>
-            </section>
-        </main>
+        <script src="index.js"></script>
 
-        <aside id="sidebar">
-            <h2>Quote of the day</h2>
-            <div id="quotes">
-                <!-- Quotes will be populated here by JavaScript -->
-            </div>
-        </aside>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 Weather Dashboard</p>
-    </footer>
-
-    <script src="index.js"></script>
-</body>
+    </body>
 </html>
