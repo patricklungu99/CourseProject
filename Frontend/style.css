@@ -55,6 +55,10 @@ article img {
     padding: 2rem;
 }
 
+#city-btn:hover{
+    cursor: pointer;
+}
+
 aside {
     background-color: #00092C;
     color: white;
@@ -128,6 +132,35 @@ h1, h2 {
     color: white;
 }
 
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    background-color: #d1241eda;
+}
+
+.delete-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 footer {
     color: rgb(0, 0, 0);
     text-align: center;
@@ -157,7 +190,11 @@ footer {
         padding: 1rem;
     }
 
-    #search-form input, #search-form button {
+    #search-form input{
+        padding: 0.3rem 2rem;
+    }
+    
+    #search-form button {
         width: 100%;
     }
 
