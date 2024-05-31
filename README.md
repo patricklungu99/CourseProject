@@ -81,7 +81,7 @@ npm start
 # API Integration
 ## Weather Data
 + Rapid API: Used to fetch current weather.
-    + __[API Documentation]()__
+    + __[API Documentation](https://rapidapi.com/weatherapi/api/weatherapi-com/)__
 
 ## Motivational Quotes
 + Quotes API: Used to fetch motivational quotes.

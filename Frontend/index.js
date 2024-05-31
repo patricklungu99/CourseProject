@@ -157,13 +157,13 @@ document.addEventListener('DOMContentLoaded', () => {
         
         favoriteCities.map((item, index)=>{
             const node = document.createElement("li");
-
             const cityName = document.createElement("span");
-            cityName.textContent = item.city;
-
             const deleteButton = document.createElement("button");
+            
+            cityName.textContent = item.city;
             deleteButton.textContent = "Delete";
-            deleteButton.className = "delete-button"
+            deleteButton.className = "delete-button";
+            
             deleteButton.onclick = () => {
                 deleteFavourite(item.id)
             };
