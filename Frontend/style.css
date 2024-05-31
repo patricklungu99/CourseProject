@@ -142,7 +142,7 @@ li {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    border: 1px solid #ccc;
+    border-left: 2px solid #ccc;
     margin-bottom: 5px;
     border-radius: 4px;
     background-color: #d1241eda;

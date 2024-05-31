@@ -84,8 +84,8 @@ npm start
     + __[API Documentation](https://rapidapi.com/weatherapi/api/weatherapi-com/)__
 
 ## Motivational Quotes
-+ Quotes API: Used to fetch motivational quotes.
-    +__[API Documentation](https://rapidapi.com/quotes-api/api/quotes-api/)__
++ Get Quotes API: Used to fetch motivational quotes.
+    + __[API Documentation](https://rapidapi.com/eimaam/api/get-quotes-api/)__
 
 # Future Enhancements
 + User Authentication: Implement user login and registration for personalized experiences.
@@ -104,5 +104,3 @@ Contributions are welcome! Please follow these steps to contribute:
 
 Please ensure your code follows the project's coding standards and includes appropriate tests.
 
-# License
-This project is licensed under the MIT License - see the LICENSE file for details.
