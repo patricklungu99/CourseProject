@@ -2,13 +2,13 @@
 ## Weather Dashboard
 
 # Table of Contents
-+ Overview
-+ Features
-+ Technologies
-+ Setup
-+ Usage
-+ API Integration
-+ Contributing
+- [Overview](#Overview)
+- [Features](#Features)
+- [Technologies](#Technologies)
+- [Setup](#Setup)
+- [Usage](#Usage)
+- [API Integration](#API-Integration)
+- [Contributing](#Contributing)
 
 # Overview
 Weather Dashboard is a user-friendly web application that allows users to view the current weather and forecast for different cities. The dashboard also features a sidebar with motivational quotes to inspire users throughout their day. This project demonstrates the integration of various web development technologies including HTML5, CSS3, JavaScript, Node.js, and SQLite.
