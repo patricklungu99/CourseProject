@@ -8,9 +8,7 @@
 + Setup
 + Usage
 + API Integration
-+ Future Enhancements
 + Contributing
-+ License
 
 # Overview
 Weather Dashboard is a user-friendly web application that allows users to view the current weather and forecast for different cities. The dashboard also features a sidebar with motivational quotes to inspire users throughout their day. This project demonstrates the integration of various web development technologies including HTML5, CSS3, JavaScript, Node.js, and SQLite.
@@ -80,11 +78,6 @@ npm start
 + Get Quotes API: Used to fetch motivational quotes.
     + __[API Documentation](https://rapidapi.com/eimaam/api/get-quotes-api/)__
 
-<!-- # Future Enhancements
-+ User Authentication: Implement user login and registration for personalized experiences.
-+ Advanced Weather Features: Add more detailed weather data such as humidity, wind speed, and UV index.
-+ Localization: Support multiple languages and units (metric/imperial).
-+ Dark Mode: Implement a dark mode for better user experience at night. -->
 
 # Contributing
 Contributions are welcome! Please follow these steps to contribute:
