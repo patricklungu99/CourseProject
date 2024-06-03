@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -13,7 +12,7 @@ app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
+// Database
 const db = new sqlite3.Database('./database.db', (err) => {
   if (err) {
     console.error('Error opening database:', err.message);
@@ -28,8 +27,7 @@ const db = new sqlite3.Database('./database.db', (err) => {
   }
 });
 
-
-// Routes
+// Checking if the server is working
 app.get('/', (req, res) => {
   res.json({message: 'Working just fine'});
 });
@@ -86,7 +84,7 @@ app.delete('/api/favorites/:id', (req, res) => {
   });
 });
 
-
+// Serving React App
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
