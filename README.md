@@ -46,8 +46,8 @@ Weather Dashboard is a user-friendly web application that allows users to view t
 1. Clone the repository:
 
 ```
-git clone https://github.com/yourusername/weather-dashboard.git
-cd weather-dashboard
+git clone https://github.com/patricklungu99/CourseProject.git
+cd backend
 ```
 
 2. Install the dependencies:
@@ -56,20 +56,13 @@ cd weather-dashboard
 npm install
 ```
 
-3. Set up environment variables:
-Create a .env file in the root directory and add your Rapid API key:
-
-```
-API_KEY=your_api_key
-```
-
-4. Start the server:
+3. Start the server:
 
 ```
 npm start
 ```
 
-5. Open your browser and navigate to http://localhost:3000.
+5. Open your frontend, start the live server and navigate to http://localhost:5500.
 
 # Usage
 
@@ -87,11 +80,11 @@ npm start
 + Get Quotes API: Used to fetch motivational quotes.
     + __[API Documentation](https://rapidapi.com/eimaam/api/get-quotes-api/)__
 
-# Future Enhancements
+<!-- # Future Enhancements
 + User Authentication: Implement user login and registration for personalized experiences.
 + Advanced Weather Features: Add more detailed weather data such as humidity, wind speed, and UV index.
 + Localization: Support multiple languages and units (metric/imperial).
-+ Dark Mode: Implement a dark mode for better user experience at night.
++ Dark Mode: Implement a dark mode for better user experience at night. -->
 
 # Contributing
 Contributions are welcome! Please follow these steps to contribute:
