@@ -168,6 +168,11 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteButton.textContent = "Delete";
             deleteButton.className = "delete-button";
             
+            cityName.style.cursor = "pointer";
+            cityName.onclick = () => {
+                getWeather(item.city)
+            }
+
             // Delete event listener
             deleteButton.onclick = () => {
                 deleteFavourite(item.id)
