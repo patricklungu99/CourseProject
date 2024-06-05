@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const current = result.current;
             const location = result.location;
             const currentCondition = result.current.condition;
-            console.log(result)
+            
             weatherDetails.innerHTML = `
                 <article>
                     <header>
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             quotesContainer.innerHTML = `
             <p>${result.quote.quote}</p>
             <p>${result.quote.category} ~ ${result.quote.author}</p>
-            `;
+            `
         } catch (error) {
             console.error(error);
         }
