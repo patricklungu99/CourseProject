@@ -42,21 +42,22 @@ app.post('/api/favorites', (req, res) => {
 
   const checkSql = 'SELECT * FROM favorites WHERE city = ?';
   db.get(checkSql, [city], (err, row) => {
-    if (err) {
-      return res.status(500).json({ error: err.message });
-    }
-    if (row) {
-      return res.status(409).json({ error: 'City already exists in favorites' });
-    }
-  })
-
-  const sql = 'INSERT INTO favorites (city) VALUES (?)';
-  db.run(sql, [city], function (err) {
-    if (err) {
-      return res.status(500).json({ error: err.message });
-    }
-    res.json({ id: this.lastID, city });
-  });
+      if (err) {
+        return res.status(500).json({ error: err.message });
+      }
+      
+      if (row) {
+        return res.status(409).json({ error: 'City already exists in favorites' });
+      } else {
+        const sql = 'INSERT INTO favorites (city) VALUES (?)';
+        db.run(sql, [city], function (err) {
+          if (err) {
+            return res.status(500).json({ error: err.message });
+          }
+          res.json({ id: this.lastID, city });
+        });
+      }
+    })
 });
 
 

@@ -40,27 +40,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const current = result.current;
             const location = result.location;
             const currentCondition = result.current.condition;
-            
+            console.log(result)
             weatherDetails.innerHTML = `
-            <article>
-                <header>
-                    <div>
-                    <img src='${currentCondition.icon}' /></br>
-                        <p>${location.name}, ${location.country} </p>
-                    </div>
-                    <div id='second_div'>
-                        <button id="thumbButton">&#128077;</button> </br>
-                        Celcius: ${current.temp_c}°C </br>
-                        Fahrenheit: ${current.temp_f}f  </br
-                        ${currentCondition.text}>
-                    </div>
-                </header>
-                        <hr/>
-                <footer class"region">
-                        Region: ${location.region} </br>
-                        Time: ${location.localtime}
-                </footer>
-            </article>`
+                <article>
+                    <header>
+                        <section id="first_div">
+                        <img src='${currentCondition.icon}' /></br>
+                            <p>${location.name}, ${location.country} </p>
+                        </section>
+                        <section id='second_div'>
+                            <button id="thumbButton">&#128077;</button> </br>
+                            Celcius: ${current.temp_c}°C </br>
+                            Humidity: ${current.humidity}  </br
+                            ${currentCondition.text}>
+                        </section>
+                    </header>
+                            <hr/>
+                    <footer class"region">
+                            Region: ${location.region} </br>
+                            Time: ${location.localtime}
+                    </footer>
+                </article>`
 
             const thumbButton = document.getElementById('thumbButton');
             thumbButton.addEventListener('click', () => addToFavourite(location.name));
@@ -154,11 +154,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Display favourite city
     function displayFavourite(favoriteCities){
+        // Check if there is any favourite city
         if(favoriteCities === undefined || favoriteCities.length === 0){
             favoriteSection.innerHTML = `<p>No favourite city</p>`;
             return;
         }
         
+        // Create list
         favoriteCities.map((item, index)=>{
             const node = document.createElement("li");
             const cityName = document.createElement("span");
@@ -167,8 +169,9 @@ document.addEventListener('DOMContentLoaded', () => {
             cityName.textContent = item.city;
             deleteButton.textContent = "Delete";
             deleteButton.className = "delete-button";
-            
             cityName.style.cursor = "pointer";
+            
+            // Get weather event listener
             cityName.onclick = () => {
                 getWeather(item.city)
             }
